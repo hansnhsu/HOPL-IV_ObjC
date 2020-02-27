@@ -5,9 +5,9 @@
 %% For single-blind review submission, w/o CCS and ACM Reference (max submission space)
 %\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
 %% For single-blind review submission, w/ CCS and ACM Reference
-\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true}
+%%\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true}
 %% For final camera-ready submission, w/ required CCS and ACM Reference
-%%\documentclass[acmsmall]{acmart}\settopmatter{}
+\documentclass[acmsmall]{acmart}\settopmatter{}
 
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -48,8 +48,14 @@
 %% sponsored by ACM SIGGRAPH, you must use the "author year" style of
 %% citations and references.
 
+%% Used to acknowledge ACM HOPL Paper shepherd
+\usepackage{acmshepherd}
+%% For Non-archival references to conform with new HOPL style guidelines
+\usepackage{acmNArefs}
+
 %% Bibliography style
-\bibliographystyle{ACM-Reference-Format}
+\bibliographystyle{ACM-HOPL-Reference-Format}
+\bibliographystyleNA{ACM-HOPL-Reference-Format}
 \citestyle{acmauthoryear}   %% For author/year citations
 
 
@@ -70,6 +76,9 @@
 \usepackage[shortcuts]{extdash}
 %% needed for multipage table
 \usepackage{longtable}
+%%\usepackage{graphicx}
+%% needed to insert SNaroff PDF document in appendix
+\usepackage{pdfpages}
 
 \begin{document}
 
@@ -146,6 +155,8 @@
   \country{USA}                   %% \country is recommended
 }
 \email{hhsu@computerhistory.org}         %% \email is recommended
+
+\shepherd{Shigeru Chiba, University of Tokyo, Japan}
 
 %% Abstract
 %% Note: \begin{abstract}...\end{abstract} environment must come
@@ -748,8 +759,13 @@ Thanks to Tom Love for providing additional information for the paper and much o
 
 
 \end{longtable}
+%%\clearpage
+\section{Historical PPI internal documents provided by Steve Naroff, c.1987--1988}
+Documents begin on next page
+\includepdf[pages=-, pagecommand={\thispagestyle{plain}}]{SnaroffEarlyObjCDesignNotes.pdf}
 
 %% Bibliography
 \bibliography{HOPL-IV_ObjC}
+\bibliographyNA{}
 
 \end{document}
