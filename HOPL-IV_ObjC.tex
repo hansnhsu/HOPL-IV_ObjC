@@ -79,6 +79,7 @@
 %%\usepackage{graphicx}
 %% needed to insert SNaroff PDF document in appendix
 \usepackage{pdfpages}
+%%\usepackage{appendix}
 
 \begin{document}
 
@@ -760,33 +761,53 @@ Thanks to Tom Love for providing additional information for the paper and much o
 
 \end{longtable}
 %%\clearpage
-\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
-\begin{center}
-    \includegraphics[width=\linewidth, page=1]{SNaroffAWatt1987ObjCDesignIssues.pdf}
-\end{center}
+%%\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
+%%\begin{center}
+%%    \includegraphics[width=\linewidth, page=1]{SNaroffAWatt1987ObjCDesignIssues.pdf}
+%%\end{center}
+\includepdf[pages=1, 
+width=\linewidth, 
+pagecommand={\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}},
+link=true]
+{SNaroffAWatt1987ObjCDesignIssues.pdf}
 %%\includepdf[pages={2-last}, pagecommand={\thispagestyle{plain}}]{SNaroffAWatt1987ObjCDesignIssues.pdf}
-\includepdf[pages={2-last}, pagecommand={}]{SNaroffAWatt1987ObjCDesignIssues.pdf}
+\includepdf[pages={2-}, pagecommand={}, link=true] {SNaroffAWatt1987ObjCDesignIssues.pdf}
 
-\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}
-\begin{center}
-    \includegraphics[width=\linewidth, page=1]{Stepstone1988ObjC4_0Charts.pdf}
-\end{center}
-\includepdf[pages={2-last}, pagecommand={}]{Stepstone1988ObjC4_0Charts.pdf}
+%%\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}
+%%\begin{center}
+    %%\includegraphics[width=\linewidth, page=1]{Stepstone1988ObjC4_0Charts.pdf}
+%%\end{center}
+\includepdf[pages=1, 
+pagecommand={\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}}, link=true]{Stepstone1988ObjC4_0Charts.pdf}
+\includepdf[pages={2-last}, pagecommand={},
+link=true]
+{Stepstone1988ObjC4_0Charts.pdf}
 
-\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987--1988}
-\begin{center}
-    \includegraphics[width=\linewidth, page=1]{SNaroffSpec_language.pdf}
-\end{center}
-\includepdf[pages={2-last}, pagecommand={}]{SNaroffSpec_language.pdf}
+%%\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987--1988}
+%%\begin{center}
+  %%  \includegraphics[width=\linewidth, page=1]{SNaroffSpec_language.pdf}
+%%\end{center}
+\includepdf[pages=1, 
+width=\linewidth, 
+pagecommand={\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987--1988}}, 
+link=true]
+{SNaroffSpec_language.pdf}
+\includepdf[pages={2-last}, pagecommand={}, link=true]{SNaroffSpec_language.pdf}
 
-\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987--1988}
-\begin{center}
-    \includegraphics[width=\linewidth, page=1]{SNaroffSpec_runtime.pdf}
-\end{center}
+%%\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987--1988}
+%%\begin{center}
+  %%  \includegraphics[width=\linewidth, page=1]{SNaroffSpec_runtime.pdf}
+%%\end{center}
+\includepdf[pages=1, 
+width=\linewidth, 
+pagecommand={\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987--1988}
+}, 
+link=true]
+{SNaroffSpec_runtime.pdf}
 \includepdf[pages={2-last}, pagecommand={}]{SNaroffSpec_runtime.pdf}
 
 %% Bibliography
 \bibliography{HOPL-IV_ObjC}
-\bibliographyNA{}
+\bibliographyNA{Nonarchival}
 
 \end{document}
