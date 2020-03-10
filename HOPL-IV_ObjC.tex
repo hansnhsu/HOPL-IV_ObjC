@@ -8,6 +8,7 @@
 %%\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true}
 %% For final camera-ready submission, w/ required CCS and ACM Reference
 %%\documentclass[acmsmall]{acmart}\settopmatter{}
+%% Actual final camera-ready submission command from Conference-Publishing.com
 \documentclass[acmsmall,screen]{acmart} 
 
 %%
@@ -27,8 +28,9 @@
 \copyrightyear{2020}
 
 %% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[HOPL-IV]{The Fourth ACM SIGPLAN History of Programming Languages Conference}{June 14--16, 2020}{London, UK}
-\acmBooktitle{Proceedings of the ACM on Programming Languages, Volume 4, Number HOPL, June 14--16, 2020, London, UK}
+%%%% Removed as per Conference Publisher instructions. ISBN not needed.
+%%\acmConference[HOPL-IV]{The Fourth ACM SIGPLAN History of Programming Languages Conference}{June 14--16, 2020}{London, UK}
+%%\acmBooktitle{Proceedings of the ACM on Programming Languages, Volume 4, Number HOPL, June 14--16, 2020, London, UK}
 %%\acmISBN{978-1-4503-9999-9/18/06}
 
 %%
@@ -93,7 +95,7 @@
 \begin{document}
 
 %% Title information
-\title[The Origins of Objective-C]{The Origins of Objective-C at PPI/Stepstone and its Evolution at NeXT}         %% [Short Title] is optional;
+\title[The Origins and Evolution of Objective-C]{The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT}         %% [Short Title] is optional;
                                         %% when present, will be used in
                                         %% header instead of Full Title.
 %\titlenote{with title note}             %% \titlenote is optional;
@@ -848,59 +850,65 @@ Thanks to Tom Love for providing additional information for the paper and much o
 2012	& Literal syntax for boxed numbers and literal and subscripting syntax for arrays and dictionaries added to Apple LLVM compiler 4.0. \\
 2014	& Apple announces Swift, designed by Lattner, a new language compatible with, but ultimately intended to supercede, Objective-C. \\
 
-
-
 \end{longtable}
 %%\clearpage
-%%\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
-%%\begin{center}
-%%    \includegraphics[width=\linewidth, page=1]{SNaroffAWatt1987ObjCDesignIssues.pdf}
-%%\end{center}
+
 \includepdf[pages=1, 
-width=\linewidth, 
+width=\linewidth,
+link=true,
 pagecommand={\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
-\label{appendix_NaroffWatt1987}},
-link=true]
+\label{appendix_NaroffWatt1987}}
+]
 {SNaroffAWatt1987ObjCDesignIssues.pdf}
-%%\includepdf[pages={2-last}, pagecommand={\thispagestyle{plain}}]{SNaroffAWatt1987ObjCDesignIssues.pdf}
-\includepdf[pages={2-}, pagecommand={}, link=true] {SNaroffAWatt1987ObjCDesignIssues.pdf}
+\includepdf[pages={2-}, 
+width=\linewidth, 
+link=true,
+pagecommand={}]
+{SNaroffAWatt1987ObjCDesignIssues.pdf}
 
-%%\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}
-%%\begin{center}
-    %%\includegraphics[width=\linewidth, page=1]{Stepstone1988ObjC4_0Charts.pdf}
-%%\end{center}
 \includepdf[pages=1, 
+landscape=false,
+angle=90,
+width=\linewidth, 
+link=true,
 pagecommand={\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}
-\label{appendix_StepstoneObjC4Charts}},
-link=true]
+\label{appendix_StepstoneObjC4Charts}}
+]
 {Stepstone1988ObjC4_0Charts.pdf}
-\includepdf[pages={2-last}, pagecommand={},
-link=true]
+\includepdf[pages={2-last}, 
+landscape=false,
+angle=90,
+width=\linewidth, 
+link=true,
+pagecommand={},
+]
 {Stepstone1988ObjC4_0Charts.pdf}
 
-%%\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987--1988}
-%%\begin{center}
-  %%  \includegraphics[width=\linewidth, page=1]{SNaroffSpec_language.pdf}
-%%\end{center}
 \includepdf[pages=1, 
-width=\linewidth, 
-pagecommand={\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987--1988}
-\label{appendix_spec.language}}, 
-link=true]
+width=\linewidth,
+link=true,
+pagecommand={\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987}
+\label{appendix_spec.language}}
+]
 {SNaroffSpec_language.pdf}
-\includepdf[pages={2-last}, pagecommand={}, link=true]{SNaroffSpec_language.pdf}
+\includepdf[pages={2-last}, 
+width=\linewidth,
+link=true,
+pagecommand={}]
+{SNaroffSpec_language.pdf}
 
-%%\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987--1988}
-%%\begin{center}
-  %%  \includegraphics[width=\linewidth, page=1]{SNaroffSpec_runtime.pdf}
-%%\end{center}
 \includepdf[pages=1, 
 width=\linewidth, 
-pagecommand={\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987--1988}
-\label{appendix_spec.runtime}}, 
-link=true]
+link=true,
+pagecommand={\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987}
+\label{appendix_spec.runtime}}
+]
 {SNaroffSpec_runtime.pdf}
-\includepdf[pages={2-last}, pagecommand={}]{SNaroffSpec_runtime.pdf}
+\includepdf[pages={2-last}, 
+width=\linewidth,
+link=true,
+pagecommand={}]
+{SNaroffSpec_runtime.pdf}
 
 %% Bibliography
 \bibliography{HOPL-IV_ObjC}
