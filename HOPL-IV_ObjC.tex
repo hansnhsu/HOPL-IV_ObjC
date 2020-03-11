@@ -11,12 +11,6 @@
 %% Actual final camera-ready submission command from Conference-Publishing.com
 \documentclass[acmsmall,screen]{acmart} 
 
-%%
-%% \BibTeX command to typeset BibTeX logo in the docs
-\AtBeginDocument{%
-  \providecommand\BibTeX{{%
-    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
-
 %%%
 %%% The following is specific to HOPL '20 and the paper
 %%% 'The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT'
@@ -26,28 +20,6 @@
 \acmJournal{PACMPL}
 \acmYear{2020} \acmVolume{4} \acmNumber{HOPL} \acmArticle{82} \acmMonth{6} \acmPrice{}\acmDOI{10.1145/3386332}
 \copyrightyear{2020}
-
-%% These commands are for a PROCEEDINGS abstract or paper.
-%%%% Removed as per Conference Publisher instructions. ISBN not needed.
-%%\acmConference[HOPL-IV]{The Fourth ACM SIGPLAN History of Programming Languages Conference}{June 14--16, 2020}{London, UK}
-%%\acmBooktitle{Proceedings of the ACM on Programming Languages, Volume 4, Number HOPL, June 14--16, 2020, London, UK}
-%%\acmISBN{978-1-4503-9999-9/18/06}
-
-%%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
-
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command \citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
 
 %% Used to acknowledge ACM HOPL Paper shepherd
 \usepackage{acmshepherd}
@@ -80,11 +52,9 @@
 \usepackage[shortcuts]{extdash}
 %% needed for multipage table
 \usepackage{longtable}
-%%\usepackage{graphicx}
 %% needed to insert SNaroff PDF document in appendix
 \usepackage{pdfpages}
-%%\usepackage{appendix}
-%%\usepackage{calc}
+%% used to add offsets to page numbers returned by pageref
 \usepackage{refcount}
 
 %% to get rid of orphans and widows
@@ -95,7 +65,7 @@
 \begin{document}
 
 %% Title information
-\title[The Origins and Evolution of Objective-C]{The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT}         %% [Short Title] is optional;
+\title[The Origins of Objective-C]{The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT}         %% [Short Title] is optional;
                                         %% when present, will be used in
                                         %% header instead of Full Title.
 %\titlenote{with title note}             %% \titlenote is optional;
@@ -188,6 +158,12 @@ Steve Naroff joined Stepstone in 1986 as Steve Jobs' NeXT Computer became an imp
 %% Generate at 'http://dl.acm.org/ccs/ccs.cfm'.
 \begin{CCSXML}
 <ccs2012>
+    <concept>
+        <concept_id>10011007.10011006.10011008</concept_id>
+        <concept_desc>Software and its engineering~General programming languages</concept_desc>
+        <concept_significance>500</concept_significance>
+        </concept>
+<concept>
    <concept>
        <concept_id>10011007.10011006.10011008.10011009.10011011</concept_id>
        <concept_desc>Software and its engineering~Object oriented languages</concept_desc>
@@ -241,6 +217,7 @@ Steve Naroff joined Stepstone in 1986 as Steve Jobs' NeXT Computer became an imp
  </ccs2012>
 \end{CCSXML}
 
+\ccsdesc[500]{Software and its engineering~General programming languages}
 \ccsdesc[500]{Software and its engineering~Object oriented languages}
 \ccsdesc[300]{Software and its engineering~Classes and objects}
 \ccsdesc[300]{Software and its engineering~Inheritance}
@@ -255,7 +232,7 @@ Steve Naroff joined Stepstone in 1986 as Steve Jobs' NeXT Computer became an imp
 
 %% Keywords
 %% comma separated list
-\keywords{Objective-C, OOPC, PPI, Stepstone, ITT, NeXT, Apple, message passing, dynamic runtime, Smalltalk, C++, software-ICs, software crisis, categories, protocols}  %% \keywords are mandatory in final camera-ready submission
+\keywords{Objective-C, OOPC, PPI, Stepstone, ITT, NeXT, Apple, message passing, dynamic binding, Smalltalk, C++, software-ICs, software crisis, categories, protocols}  %% \keywords are mandatory in final camera-ready submission
 
 
 %% \maketitle
@@ -282,7 +259,7 @@ A third feature of the software productivity discourse, especially salient in ``
 
 \section{The Origins of OOPC at ITT}
 \label{sec-OOPC@ITT}
-It was in this context in which the precursor to Objective-C, the Object-Oriented Pre-Compiler (OOPC), was born at International Telephone and Telegraph (ITT) in the early 1980s. During Harold Geneen's tenure as ITT CEO, ITT had grown into a complex international conglomerate of more than 100,000 employees and 250 profit centers (Hartford Insurance, Sheraton Hotels, Continental ``Wonder Bread'' Baking). These holdings included the national telecommunications companies of many countries around the globe, plus numerous smaller ventures. While ITT controlled the international telecommunications market, AT\&T controlled the North American market. Rand Araskog became CEO in 1979 as ITT was transitioning from an analog to digital telephone switching system, the System 1240, to compete with AT\&T.
+It was within this context that the precursor to Objective-C, the Object-Oriented Pre-Compiler (OOPC), was born at International Telephone and Telegraph (ITT) in the early 1980s. During Harold Geneen's tenure as ITT CEO, ITT had grown into a complex international conglomerate of more than 100,000 employees and 250 profit centers (Hartford Insurance, Sheraton Hotels, Continental ``Wonder Bread'' Baking). These holdings included the national telecommunications companies of many countries around the globe, plus numerous smaller ventures. While ITT controlled the international telecommunications market, AT\&T controlled the North American market. Rand Araskog became CEO in 1979 as ITT was transitioning from an analog to digital telephone switching system, the System 1240, to compete with AT\&T.
 
 To support the System 1240 effort, ITT decided in 1980 to create a research group to rival Bell Labs, called the Programming Technology Center (PTC), located in Stratford, Connecticut. This lab would support the nearby Advanced Technology Center in Shelton (relocated from Stamford), CT, which was modifying the System 1240 switch's operating system for the North American market. Jim Frame, who had worked at IBM on OS/360 and had been the head of an IBM laboratory in California, was hired to lead the new PTC. Dr. Tom Love, a cognitive psychologist who'd written his dissertation on the characteristics of successful programmers and had done human factors work for the Software Psychology Research Group at General Electric Aerospace, was the second employee hired into the group, after software engineering guru Capers Jones. As the PTC had decided to use Unix as a base for the development environment for ITT, Love discovered Dr. Brad Cox, a Unix expert who had completed his Ph.D. in Mathematical Biology from the University of Chicago simulating neural networks on minicomputers. Other key members of the team included Ted Biggerstaff, Rudy Ramsey, Anatol Holt and Alan Watt. Watt had been a classmate of Bill Joy's at Reed College \citetext{\citealp[15--16]{cox_oral_2016}; \citealpNA{love_skype_2019}}, and had worked with Cox at a previous employer in New Hampshire. After a visit by Watt and Cox to Bill Joy at Berkeley, Cox decided to use a suitcase-sized Unix-based Onyx computer as the host for his demonstration of ITT's desktop future, which could support up to eight users with glass teletypes on the desktop or remotely via 1200 baud modems and UUCP connections to other systems. Cox and Anatol Holt conducted research in coordination technologies to improve the productivity of teams rather than individuals. Cox's coordination project involved creating a better tool for expense travel vouchers, using a program generator that compiled a forms description language into programs that could display expense reports. However, Cox soon realized that program generation would not scale to the thousands of data types necessary to affect the productivity of a large corporation.
 
@@ -693,7 +670,7 @@ A protocol is an abstract type represented by a list of method declarations. No 
     @end
 \end{verbatim}
 
-Blaine Garst remembers protocols being inspired by modules in Modula \citep[22--25, 54]{garst_oral_2016}. Naroff, however, believes that the notion of declaring an abstract interface for others to implement was inspired by C++ ``pure virtual'' functions. Instead of adopting the C++ idiom verbatim, however, the team distinguished concrete types (i.e., classes) from abstract types (i.e., protocols). In turn, protocols in Objective-C inspired interfaces in the Java language, according to James Gosling \citep[13--14]{gosling_oral_2019} and Patrick Naughton \citepNA{patrick_naughton_java_nodate}. Unlike Objective-C, Java interfaces and classes are in the same namespace. Naroff likes Java's simplification for local programming tasks, but doesn't think it fits well with forwarding/proxies. 
+Blaine Garst remembers protocols being inspired by modules in Modula \citep[22--25, 54]{garst_oral_2016}. Naroff, however, believes that the notion of declaring an abstract interface for others to implement was inspired by C++ ``pure virtual'' functions. Instead of adopting the C++ idiom verbatim, however, the team distinguished concrete types (i.e., classes) from abstract types (i.e., protocols). In turn, protocols in Objective-C inspired interfaces in the Java language, according to James Gosling \citep[13--14]{gosling_oral_2019} and Patrick Naughton \citepNA{naughton_java_1997}. Unlike Objective-C, Java interfaces and classes are in the same namespace. Naroff likes Java's simplification for local programming tasks, but doesn't think it fits well with forwarding/proxies. 
 
 Class interfaces were extended for protocol \emph{adoption}. The angle brackets contain a list of adopted protocols (e.g., \verb$Dragging$, \verb$Spelling$, and \verb$Encoding$). The following syntax requires the \verb$Text$ class implement methods for the adopted protocols. 
 \begin{verbatim}
