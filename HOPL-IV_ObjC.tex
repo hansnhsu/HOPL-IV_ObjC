@@ -427,7 +427,7 @@ The modest objectives of the early language actually worked in PPI's favor. Posi
 
 The company moved from its original quarters in a renovated dentist's offices to a rustic fire-hose factory in Sandy Hook, CT. This was a beautiful historic site with antique exposed beams and an industrial waterfall right outside Cox's window. This drove a hydraulic electrical generator being renovated in the basement. 
 
-The first round of venture capital brought in a new board of directors, and a change to the company's name: Stepstone Corporation. The board elected a new CEO, Dennis Sisco, who immediately added considerable staff in development, testing, sales and marketing. Most of the new development staff were former colleagues from ITT, including Alan Watt, Don Combelic (an ITT executive who'd decided to become a C programmer when he retired), and Ken Hamer-Hodges (one of System 1240's lead designers). One exception was Steve Naroff, whose work will be discussed in more detail later (see section~\ref{sec-SteveNaroffJoinsStepstone1986}).
+The first round of venture capital brought in a new board of directors, and a change to the company's name: Stepstone Corporation. The board elected a new CEO, Dennis Sisco, who immediately added considerable staff in development, testing, sales and marketing. Most of the new development staff were former colleagues from ITT, including Alan Watt, Donn Combelic (an ITT executive who'd decided to become a C programmer when he retired, who led Stepstone's Quality Assurance \citep[13--14]{love_skype_2019}), and Ken Hamer-Hodges (one of System 1240's lead designers). One exception was Steve Naroff, whose work will be discussed in more detail later (see section~\ref{sec-SteveNaroffJoinsStepstone1986}).
 
 Cox turned the compiler and foundation library over to the development team (managed by Hamer-Hodges) and focused his attention on new product research. Naroff and Watt took over responsibility for the Objective-C language, while Cox and others worked on the ICpak libraries, including a library of graphical user interface components modeled after Smalltalk's. This was ultimately marketed as ICpak 201, alongside the foundation library, ICpak 101, which was bundled with the compiler. Creating a cross-platform graphics library was time-consuming and resource intensive, as every platform had its own proprietary windowing system. MIT's X Window system was not made public until years later. Stepstone developed a primitive graphics portability layer, based initially on Sun's windowing system, and used that to build the user-accessible functionality of ICpak 201. Around this time Cox developed Producer, the Smalltalk to Objective-C converter, to keep the graphics API as close as possible to Smalltalk's  \citep{cox_producer:_1987}.
 
@@ -446,7 +446,7 @@ Steve Naroff met Brad Cox and Tom Love at the first OOPSLA conference in 1986, a
 
 Naroff's first six months at PPI, now Stepstone, were spent porting the Objective-C compiler to various platforms for its customers, some of which were very niche. There was no prior documentation so Naroff had to document both the architecture and implementation so decisions could be made moving forward. Naroff became intimately familiar with the compiler's inadequacies as originally written by Cox. First of all, the ``compiler'' was at this stage still merely a translator that converted object-oriented message expressions into procedural C code, which was then handed off to a true C compiler. Worse, the translator could not detect errors, such as misspellings, in message names. The reason for this was in the language definition: there was no explicit interface declaration. Therefore a misspelled message expression received by an object was treated as simply a different message than the one intended, which would only be detected at runtime. In addition, Objective\=/C in its original incarnation was, like Smalltalk, completely dynamically typed (all objects were typed \verb$id$). Naroff felt that Smalltalk's imperative model caused problems in a statically compiled, C-based platform, and pushed for adding static types (what he called ``classified types,'' from MAINSAIL usage) so that the compiler could do rudimentary type-checking at compile time.
 
-At a strategic level, the Stepstone engineering staff was torn between adding high-end features from Smalltalk (e.g., blocks) and improving C language integration. To provide leadership and stimulate discussion, Naroff and Alan Watt drafted an internal white paper (July '87) describing problems and feature requests [Appendix \ref{appendix_NaroffWatt1987}: Naroff and Watt, Design Issues for Objective-C DRAFT July 1987]. (See section~\ref{sec-earlyadopterfeedback} below.) Naroff tackled integration problems with C and Watt focused on new features. Naroff was specifically interested in adding explicit declaration constructs and solving fragility problems. After weeks of discussion, it became apparent to Naroff that his concerns were not gaining momentum at Stepstone. 
+At a strategic level, the Stepstone engineering staff was torn between adding high-end features from Smalltalk (e.g., blocks) and improving C language integration. To provide leadership and stimulate discussion, Naroff and Alan Watt drafted an internal white paper (July '87) describing problems and feature requests [Appendix \ref{appendix_NaroffWatt1987}: Naroff and Watt, Design Issues for Objective-C DRAFT July 1987, also available at \citealp{naroff_design_1987}]. (See section~\ref{sec-earlyadopterfeedback} below.) Naroff tackled integration problems with C and Watt focused on new features. Naroff was specifically interested in adding explicit declaration constructs and solving fragility problems. After weeks of discussion, it became apparent to Naroff that his concerns were not gaining momentum at Stepstone. 
 \section{Early adopter feedback}
 \label{sec-earlyadopterfeedback}
 In 1987, both Objective-C and C++ were in their infancy. NeXT and Hewlett-Packard were highly visible early adopters of Objective-C, but their reasons for adoption were very different. As mentioned earlier in section~\ref{sec-stepstone_swIC}, HP was using Objective-C in a research setting, for ``pilot'' projects and prototyping, and pushed for research features like automatic garbage collection.
@@ -460,8 +460,7 @@ NeXT did not choose C++. Where for many companies C++ represented the path of le
 \setcounterpageref{appendixpagenum}{appendix_NaroffWatt1987}
 \addtocounter{appendixpagenum}{1}
 
-Thus, despite significant early problems with Objective-C, NeXT's decision would ultimately pay off as it gained an advocate (Naroff) for its needs at Stepstone. This began when Naroff and Alan Watt drafted a white paper in July 1987 outlining key issues with Objective-C. The following excerpt %%\citep[2]{naroff_design_1987}
-from Appendix \ref{appendix_NaroffWatt1987}, page \arabic{appendixpagenum}, describes such problems:
+Thus, despite significant early problems with Objective-C, NeXT's decision would ultimately pay off as it gained an advocate (Naroff) for its needs at Stepstone. This began when Naroff and Alan Watt drafted the white paper of July 1987 outlining key issues with Objective-C. The following excerpt from the white paper in Appendix \ref{appendix_NaroffWatt1987}, page \arabic{appendixpagenum}, (also available at \citealp[2]{naroff_design_1987}) describes such problems:
 \begin{quotation}
 \begin{itemize}
 \item The system needs to be re-compiled frequently.
@@ -481,14 +480,14 @@ In addition, the paper outlined possible new features, many requested by custome
 \item Multiple Inheritance.
 \item Blocks.
 \item Dynamic Linking. 
-%%\citep[5--9]{naroff_design_1987}
 \newcounter{appendixpagenumrangestart}
 \setcounterpageref{appendixpagenumrangestart}{appendix_NaroffWatt1987}
 \addtocounter{appendixpagenumrangestart}{3}
 \newcounter{appendixpagenumrangeend}
 \setcounterpageref{appendixpagenumrangeend}{appendix_NaroffWatt1987}
 \addtocounter{appendixpagenumrangeend}{7}
-[Appendix  \ref{appendix_NaroffWatt1987},  \arabic{appendixpagenumrangestart}--\arabic{appendixpagenumrangeend}]
+[Appendix  \ref{appendix_NaroffWatt1987},  \arabic{appendixpagenumrangestart}--\arabic{appendixpagenumrangeend},
+also available at \citealp[5--9]{naroff_design_1987}]
 \end{itemize}
 
 Subsequently Naroff organized a key meeting with NeXT engineers Steve Stone (who was working on the Objective-C compiler at NeXT) and Trey Matteson (on the AppKit team), focused on solving the problems Naroff and Watt had identified in the white paper. The meeting was both timely and productive; it helped validate Naroff's thinking and establish priorities. NeXT was pleased to see Naroff anticipate their issues, but they wanted Stepstone to commit to solutions.
@@ -749,7 +748,7 @@ Thanks to Tom Love for providing additional information for the paper and much o
 1980 April 	& C with Classes published in Bell Labs CS Technical Report 
             (republished in Jan 1982 SIGPLAN Notices) \\
 1980 	& ITT creates Programming Technology Center in Stratford, CT. Tom Love hires 
-         Anatole Holt, Rudy Ramsey, Brad Cox, Ted Biggerstaff, Alan Watts, Maude Sawyer
+         Anatole Holt, Rudy Ramsey, Brad Cox, Ted Biggerstaff, Alan Watt, Maude Sawyer
          to staff the Advanced Technology Department within the PTC to develop tools to 
          support telecom developers at ITT \\
 1981 Aug	& Brad Cox receives \emph{Byte} magazine issue devoted to Smalltalk \\
