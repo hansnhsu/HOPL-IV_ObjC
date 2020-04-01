@@ -65,7 +65,7 @@
 \begin{document}
 
 %% Title information
-\title[The Origins of Objective-C]{The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT}         %% [Short Title] is optional;
+\title{The Origins of Objective-C at PPI/Stepstone and Its Evolution at NeXT}         %% [Short Title] is optional;
                                         %% when present, will be used in
                                         %% header instead of Full Title.
 %\titlenote{with title note}             %% \titlenote is optional;
@@ -239,7 +239,7 @@ Steve Naroff joined Stepstone in 1986 as Steve Jobs' NeXT Computer became an imp
 %% commands, abstract environment, Computing Classification System
 %% environment and commands, and keywords command.
 \maketitle
-
+\tableofcontents
 
 \section{Introduction}
 \label{sec-Intro}
@@ -352,7 +352,7 @@ Although Love's group was committed to Unix, other parts of the organization dec
 PPI began as a productivity consulting company, with plans to build software products that would help customers improve productivity. Tom Love worked on the consulting business side, acquiring contracts with clients including Philips and a Swedish bank. Cox worked on the technical products side, with his first task to recreate his Object-Oriented Pre-Compiler from a clean slate to avoid legal entanglements with ITT or Schlumberger. Love felt that to attract customers and investors, the language needed a better name than ``OOPC,'' so Cox renamed the language ``Objective\=/C.''
 
 As discussed earlier, Cox published \emph{Object-Oriented Programming: An Evolutionary Approach} in 1986, which was his book-length treatment of the vision behind Objective-C: a tool to unleash the ``Software Industrial Revolution'' through object-oriented, reusable software components or ``Software-ICs.''  \citep{cox_object-oriented_1986} Paradoxically, the revolutionary potential of Software\=/ICs would be made possible by a merely evolutionary addition to existing languages, grafting the Smalltalk-style message/object model onto C to create the hybrid Objective-C. It was in this context that Cox thought of Objective-C as a ``soldering iron,'' used to glue Software-ICs together \citep[260]{biancuzzi_objective-c_2009}. While the language was sold as a product in its own right (at \$2,500 per compiler license), the real purpose was to use it to produce and glue together the component libraries (marketed as ``ICpaks,'') that would constitute PPI's main product line.
-\subsection{Objective-C versus C++}
+\paragraph{Objective-C versus C++}
 \label{subsec-ObjCvC++}
 Cox contrasted this lightweight approach explicitly from C++. If Objective-C was a simple soldering iron, Cox likened C++ to a ``fabrication plant.'' \citetext{\citealp[29--30]{cox_oral_2016}, \citealp[263]{biancuzzi_objective-c_2009}}  Both are hybrid languages that extend procedural C with object-oriented features, both began as precursor languages implemented via the C macro preprocessor (C++ evolved from C with Classes, Objective-C from OOPC), and both were developed in roughly the same period (C++ from 1979-1985, Objective-C from 1981-1984). Objective-C and C++ both became commercially available a year apart from each other (1984 and 1985 respectively). Yet C++ and Objective-C are very different languages, with different philosophies and goals. 
 
@@ -427,7 +427,7 @@ The modest objectives of the early language actually worked in PPI's favor. Posi
 
 The company moved from its original quarters in a renovated dentist's offices to a rustic fire-hose factory in Sandy Hook, CT. This was a beautiful historic site with antique exposed beams and an industrial waterfall right outside Cox's window. This drove a hydraulic electrical generator being renovated in the basement. 
 
-The first round of venture capital brought in a new board of directors. By early 1988, Tom Love would be replaced by Dennis Sisco as CEO, and the company's name would be changed from Productivity Products International, Inc. to The Stepstone Corporation. With funding, PPI added considerable staff in development, testing, sales and marketing. Most of the new development staff were former colleagues from ITT, including Alan Watt, Donn Combelic (an ITT executive who'd decided to become a C programmer when he retired, who led PPI's Quality Assurance \citep[13--14]{love_skype_2019}), and Ken Hamer-Hodges (one of System 1240's lead designers). One exception was Steve Naroff, whose work will be discussed in more detail later (see section~\ref{sec-SteveNaroffJoinsStepstone1986}). 
+The first round of venture capital brought in a new board of directors. The board elected a new CEO, Dennis Sisco, who immediately added considerable staff in development, testing, sales and marketing. Most of the new development staff were former colleagues from ITT, including Alan Watt, Donn Combelic (an ITT executive who'd decided to become a C programmer when he retired, who led PPI's Quality Assurance \citep[13--14]{love_skype_2019}), and Ken Hamer-Hodges (one of System 1240's lead designers). One exception was Steve Naroff, whose work will be discussed in more detail later (see section~\ref{sec-SteveNaroffJoinsStepstone1986}). The board also insisted on hiring a firm to find the company a new name, which suggested ``Syzygy,'' but this was rejected by Tom Love \citetext{\citeyear[18]{love_skype_2019}}. Sometime between November 1987 and July of 1988, the company's name would be officially changed from Productivity Products International, Inc. to The Stepstone Corporation.
 
 Cox turned the compiler and foundation library over to the development team (managed by Hamer-Hodges) and focused his attention on new product research. Naroff and Watt took over responsibility for the Objective-C language, while Cox and others worked on the ICpak libraries, including a library of graphical user interface components modeled after Smalltalk's. This was ultimately marketed as ICpak 201, alongside the foundation library, ICpak 101, which was bundled with the compiler. Creating a cross-platform graphics library was time-consuming and resource intensive, as every platform had its own proprietary windowing system. MIT's X Window system was not made public until years later. Stepstone developed a primitive graphics portability layer, based initially on Sun's windowing system, and used that to build the user-accessible functionality of ICpak 201. Around this time Cox developed Producer, the Smalltalk to Objective-C converter, to keep the graphics API as close as possible to Smalltalk's  \citep{cox_producer:_1987}.
 
@@ -759,14 +759,14 @@ Thanks to Tom Love for providing additional information for the paper and much o
 1982 	& Stroustrup begins work on C++, successor to C with Classes \\
 1982 June	& Love hired by Schlumberger-Doll, with intent of moving his Advanced Technology 
             Department to Schlumberger \\
-1982 \verb%~%Sept	& Love gets first Smalltalk development environment from Xerox without user manual 
+1982 c. Sept	& Love gets first Smalltalk development environment from Xerox without user manual 
      or training materials, with only a Xerox help line staffed by 
      Evelyn van Orden in Los Angeles \\
 1982	& Cox spends most of his time at ITT improving and extending OOPC, for the purpose of improving programming tools for telecom developers \\
 1983 Jan	& OOPC paper published in ACM SIGPLAN Notices \\
 1983 Jan	& Apple releases the Lisa \\
-1983 \verb%~%Jan	& Brad Cox hired by Tom Love at Schlumberger to build expert systems for petroleum engineers \\
-1983 \verb%~%March	& Tom Love introduced to technical director at Philips Research Lab in Eindenhoven \\
+1983 c. Jan	& Brad Cox hired by Tom Love at Schlumberger to build expert systems for petroleum engineers \\
+1983 c. Mar	& Tom Love introduced to technical director at Philips Research Lab in Eindenhoven \\
 1983 June 6	& Tom Love and Brad Cox resign from Schlumberger to work on the Philips contract and to develop a commercial version of the object-oriented extension to C, founding new company Productivity Products International (PPI) \\
 1983 July	& Cox and Love present their work on OOPC and Smalltalk at Softfair: A Conference on Software Development Tools, Techniques, and Alternatives in Arlington, VA \\
 1983 Nov	& First copy of Objective-C sold and shipped to Tom Lubinski in California \\
@@ -779,10 +779,11 @@ Thanks to Tom Love for providing additional information for the paper and much o
 1985 	& C++ 1.0 becomes commercially available \\
 1985	& Love unsuccessfully attempts to hire Bjarne Stroustrup from Bell Labs to PPI \\
 1985 June	& Steve Jobs leaves Apple, founds NeXT with five other former Apple employees \\
+c. 1986 	& Oak Management partner Dennis Sisco hired as CEO. \\
 1986 Nov	& Steve Naroff joins PPI \\
 1987 July    & Steve Naroff and Alan Watt draft white paper describing needed improvements in Objective-C \\
 1987 Nov    & NeXT engineers Steve Stone and Trey Matteson visit PPI to discuss changes in Objective-C needed for NeXT to deploy shared libraries \\
-1987-1988   & Oak Management partner Dennis Sisco hired as CEO. Company name changed from PPI to Stepstone. \\
+c. 1987-1988   & Company name changed from PPI to Stepstone. \\
 1988 	& Stepstone negotiating deal with IBM, HP, NeXT to include ObjC on all their workstations \\
 1988 June	& Tom Love resigns from Stepstone after heated discussion of pricing strategy at board meeting entirely staffed with VC investors. \\
 1988 June	& Tom Love starts Orgware, one-person consulting company based in Roxbury, CT \\
@@ -804,7 +805,7 @@ Thanks to Tom Love for providing additional information for the paper and much o
 1994 Fall	& Steve Jobs arrives at Love's office at Morgan Stanley attempting to sell NeXT workstations. Love tells Jobs that he will only do business with NeXT if Jobs resolves dispute with Stepstone over Objective-C license contract. \\
 	& Love funds a trading system developer in San Francisco to compare NeXT machines and the development tools already at use at Morgan Stanley. Results are not compelling enough for Love to recommend purchase of NeXT machines. \\
 	& Jobs contacts third Stepstone CEO KK Tan, writes Stepstone check for overdue royalties owed, and acquires full rights to Objective-C from Stepstone for a fixed amount. \\
-1994 	& Stepstone folds \\
+c. 1994 	& Stepstone folds \\
 1995 Feb	& NeXTSTEP 3.3 released, includes ports for HP PA-RISC and Sun SPARC architectures \\
 1995 June	& Steve Naroff rejoins NeXT \\
 1996 Dec	& NeXT begins acquisition talks with Apple \\
