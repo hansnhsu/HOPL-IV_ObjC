@@ -28,6 +28,8 @@
 %% For better typesetting quality
 \usepackage{microtype}
 
+%advanced graphics
+\usepackage{tikz}
 
 %% Bibliography style
 \bibliographystyle{ACM-HOPL-Reference-Format}
@@ -352,7 +354,7 @@ Although Love's group was committed to Unix, other parts of the organization dec
 PPI began as a productivity consulting company, with plans to build software products that would help customers improve productivity. Tom Love worked on the consulting business side, acquiring contracts with clients including Philips and a Swedish bank. Cox worked on the technical products side, with his first task to recreate his Object-Oriented Pre-Compiler from a clean slate to avoid legal entanglements with ITT or Schlumberger. Love felt that to attract customers and investors, the language needed a better name than ``OOPC,'' so Cox renamed the language ``Objective\=/C.''
 
 As discussed earlier, Cox published \emph{Object-Oriented Programming: An Evolutionary Approach} in 1986, which was his book-length treatment of the vision behind Objective-C: a tool to unleash the ``Software Industrial Revolution'' through object-oriented, reusable software components or ``Software-ICs.''  \citep{cox_object-oriented_1986} Paradoxically, the revolutionary potential of Software\=/ICs would be made possible by a merely evolutionary addition to existing languages, grafting the Smalltalk-style message/object model onto C to create the hybrid Objective-C. It was in this context that Cox thought of Objective-C as a ``soldering iron,'' used to glue Software-ICs together \citep[260]{biancuzzi_objective-c_2009}. While the language was sold as a product in its own right (at \$2,500 per compiler license), the real purpose was to use it to produce and glue together the component libraries (marketed as ``ICpaks,'') that would constitute PPI's main product line.
-\paragraph{Objective-C versus C++}
+\subsection*{Objective-C versus C++}
 \label{subsec-ObjCvC++}
 Cox contrasted this lightweight approach explicitly from C++. If Objective-C was a simple soldering iron, Cox likened C++ to a ``fabrication plant.'' \citetext{\citealp[29--30]{cox_oral_2016}, \citealp[263]{biancuzzi_objective-c_2009}}  Both are hybrid languages that extend procedural C with object-oriented features, both began as precursor languages implemented via the C macro preprocessor (C++ evolved from C with Classes, Objective-C from OOPC), and both were developed in roughly the same period (C++ from 1979-1985, Objective-C from 1981-1984). Objective-C and C++ both became commercially available a year apart from each other (1984 and 1985 respectively). Yet C++ and Objective-C are very different languages, with different philosophies and goals. 
 
@@ -485,7 +487,7 @@ In addition, the paper outlined possible new features, many requested by custome
 \addtocounter{appendixpagenumrangestart}{3}
 \newcounter{appendixpagenumrangeend}
 \setcounterpageref{appendixpagenumrangeend}{appendix_NaroffWatt1987}
-\addtocounter{appendixpagenumrangeend}{7}
+\addtocounter{appendixpagenumrangeend}{5}
 [Appendix  \ref{appendix_NaroffWatt1987},  \arabic{appendixpagenumrangestart}--\arabic{appendixpagenumrangeend},
 also available at \citealp[5--9]{naroff_design_1987}]
 \end{itemize}
@@ -866,30 +868,36 @@ pagecommand={},
 \includepdf[pages=1, 
 width=\linewidth,
 link=true,
-pagecommand={\section{Historical document: Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language (spec.language), S. Naroff, c.1987}
-\label{appendix_spec.language}},
+pagecommand={\section{Historical document: spec.language, S. Naroff, c.1987}
+\label{appendix_spec.language}
+\tikz \fill[fill=white] (0,0) rectangle (\linewidth, 1in);
+},
 picturecommand*={}
 ]
-{SNaroffSpec_language.pdf}
+{SNaroffSpec-language.pdf}
 \includepdf[pages={2-last}, 
 width=\linewidth,
 link=true,
 pagecommand={}]
-{SNaroffSpec_language.pdf}
+{SNaroffSpec-language.pdf}
 
 \includepdf[pages=1, 
 width=\linewidth, 
 link=true,
-pagecommand={\section{Historical document: Design Notebook: Selector Mapping in the Objective-C Run-Time Support System (spec.runtime), S. Naroff, c.1987}
-\label{appendix_spec.runtime}},
-picturecommand*={}
+pagecommand={
+\section{Historical document: spec.runtime, S. Naroff, c.1987}
+\label{appendix_spec.runtime}
+\tikz \fill [fill=white] (0,0) rectangle (\linewidth, 1in);
+},
+picturecommand*={
+}
 ]
-{SNaroffSpec_runtime.pdf}
+{SNaroffSpec-runtime.pdf}
 \includepdf[pages={2-last}, 
 width=\linewidth,
 link=true,
 pagecommand={}]
-{SNaroffSpec_runtime.pdf}
+{SNaroffSpec-runtime.pdf}
 
 %% Bibliography
 \bibliography{HOPL-IV_ObjC}
