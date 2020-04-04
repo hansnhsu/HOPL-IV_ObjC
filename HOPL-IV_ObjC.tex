@@ -354,7 +354,7 @@ Although Love's group was committed to Unix, other parts of the organization dec
 PPI began as a productivity consulting company, with plans to build software products that would help customers improve productivity. Tom Love worked on the consulting business side, acquiring contracts with clients including Philips and a Swedish bank. Cox worked on the technical products side, with his first task to recreate his Object-Oriented Pre-Compiler from a clean slate to avoid legal entanglements with ITT or Schlumberger. Love felt that to attract customers and investors, the language needed a better name than ``OOPC,'' so Cox renamed the language ``Objective\=/C.''
 
 As discussed earlier, Cox published \emph{Object-Oriented Programming: An Evolutionary Approach} in 1986, which was his book-length treatment of the vision behind Objective-C: a tool to unleash the ``Software Industrial Revolution'' through object-oriented, reusable software components or ``Software-ICs.''  \citep{cox_object-oriented_1986} Paradoxically, the revolutionary potential of Software\=/ICs would be made possible by a merely evolutionary addition to existing languages, grafting the Smalltalk-style message/object model onto C to create the hybrid Objective-C. It was in this context that Cox thought of Objective-C as a ``soldering iron,'' used to glue Software-ICs together \citep[260]{biancuzzi_objective-c_2009}. While the language was sold as a product in its own right (at \$2,500 per compiler license), the real purpose was to use it to produce and glue together the component libraries (marketed as ``ICpaks,'') that would constitute PPI's main product line.
-\subsection*{Objective-C versus C++}
+\paragraph{Objective-C versus C++}
 \label{subsec-ObjCvC++}
 Cox contrasted this lightweight approach explicitly from C++. If Objective-C was a simple soldering iron, Cox likened C++ to a ``fabrication plant.'' \citetext{\citealp[29--30]{cox_oral_2016}, \citealp[263]{biancuzzi_objective-c_2009}}  Both are hybrid languages that extend procedural C with object-oriented features, both began as precursor languages implemented via the C macro preprocessor (C++ evolved from C with Classes, Objective-C from OOPC), and both were developed in roughly the same period (C++ from 1979-1985, Objective-C from 1981-1984). Objective-C and C++ both became commercially available a year apart from each other (1984 and 1985 respectively). Yet C++ and Objective-C are very different languages, with different philosophies and goals. 
 
@@ -440,7 +440,7 @@ Although the graphics library was successful as a product, Cox believes that it 
 Meanwhile, the Objective-C compiler's customers made extensive feature requests, which clashed with Cox's initial notion of a simple ``soldering iron'' glue language. Two prominent customers drove the development of Objective-C at Stepstone. The first was HP Labs, for research purposes. HP wanted Stepstone to add automatic garbage collection. Work along these lines was begun, but adding garbage collection to a C-compatible language was a difficult research problem, one that Stepstone was not equipped to solve. Another feature requested was Smalltalk's blocks (which are equivalent to closures or lambdas). Another early adopter wanted an Objective-C interpreter, and actually built one and asked for permission to market it. It turned out that he had started from an early version of Stepstone's proprietary compiler source code, which set off the investors' alarms. They eventually struck a deal in which he turned over rights to the interpreter in exchange for remuneration. However, this committed Stepstone to maintaining the interpreter, an effort which further drained its resources.
 
 Cox soon inherited the source to the interpreter with the request to make it ``fully compatible'' with the compiler. As it turned out, the interpreter was built exactly like the compiler, around an expression tree that could be executed in place, with call-outs to whatever compiled code was linked into the interpreter when it was built. Cox got it working and turned it over to the development and testing groups for deployment. Although the interpreter was useful for demonstrating the graphics library, Cox felt that it was fragile, and seemed like too radical a departure from C's modest roots. The addition of this independent build environment was a further burden to the already overloaded testing group. 
-\section{Steve Naroff joins PPI/Stepstone (1986)}
+\section{Steve Naroff Joins PPI/Stepstone (1986)}
 \label{sec-SteveNaroffJoinsStepstone1986}
 As mentioned earlier, after PPI received venture capital funding and hired a programming staff, Cox turned over development of the language and compiler to Steve Naroff and Alan Watt. Prior to his hiring at PPI in November 1986, Naroff had been at HHB-Softron working on CAD systems for digital circuit design on VAX and Unix workstations, and then at Cericor, a Utah-based company making graphical CAD tools implemented in MAINSAIL, a MAchine INdependent version of Stanford Artificial Intelligence Language (SAIL) created by the Stanford AI Lab. MAINSAIL was a powerful language designed to simplify the portability and maintenance of large programming projects. It supported a rich declarative programming model, dynamic loading, runtime class identification, persistence, and garbage collection. Although not object-oriented per se, MAINSAIL's dynamic runtime model of programming lent itself well to an object-oriented style, and Cericor built an object-oriented library on top of MAILSAIL. Nevertheless, Cericor had been acquired by Hewlett-Packard. Despite its technical excellence, given MAILSAIL's niche position in the marketplace, HP ordered the newly acquired Cericor to rewrite its product in the more mainstream C++. Given C++'s static model of programming, Naroff believed this to be a losing proposition and left HP.
 
@@ -449,7 +449,7 @@ Steve Naroff met Brad Cox and Tom Love at the first OOPSLA conference in 1986, a
 Naroff's first six months at PPI were spent porting the Objective-C compiler to various platforms for its customers, some of which were very niche. There was no prior documentation so Naroff had to document both the architecture and implementation so decisions could be made moving forward. Naroff became intimately familiar with the compiler's inadequacies as originally written by Cox. First of all, the ``compiler'' was at this stage still merely a translator that converted object-oriented message expressions into procedural C code, which was then handed off to a true C compiler. Worse, the translator could not detect errors, such as misspellings, in message names. The reason for this was in the language definition: there was no explicit interface declaration. Therefore a misspelled message expression received by an object was treated as simply a different message than the one intended, which would only be detected at runtime. In addition, Objective\=/C in its original incarnation was, like Smalltalk, completely dynamically typed (all objects were typed \verb$id$). Naroff felt that Smalltalk's imperative model caused problems in a statically compiled, C-based platform, and pushed for adding static types (what he called ``classified types,'' from MAINSAIL usage) so that the compiler could do rudimentary type-checking at compile time.
 
 At a strategic level, the PPI engineering staff was torn between adding high-end features from Smalltalk (e.g., blocks) and improving C language integration. To provide leadership and stimulate discussion, Naroff and Alan Watt drafted an internal white paper (July '87) describing problems and feature requests [Appendix \ref{appendix_NaroffWatt1987}: Naroff and Watt, Design Issues for Objective-C DRAFT July 1987, also available at \citealp{naroff_design_1987}]. (See section~\ref{sec-earlyadopterfeedback} below.) Naroff tackled integration problems with C and Watt focused on new features. Naroff was specifically interested in adding explicit declaration constructs and solving fragility problems. After weeks of discussion, it became apparent to Naroff that his concerns were not gaining momentum at PPI. 
-\section{Early adopter feedback}
+\section{Early Adopter Feedback}
 \label{sec-earlyadopterfeedback}
 In 1987, both Objective-C and C++ were in their infancy. NeXT and Hewlett-Packard were highly visible early adopters of Objective-C, but their reasons for adoption were very different. As mentioned earlier in section~\ref{sec-stepstone_swIC}, HP was using Objective-C in a research setting, for ``pilot'' projects and prototyping, and pushed for research features like automatic garbage collection.
 
@@ -495,7 +495,7 @@ also available at \citealp[5--9]{naroff_design_1987}]
 Subsequently Naroff organized a key meeting with NeXT engineers Steve Stone (who was working on the Objective-C compiler at NeXT) and Trey Matteson (on the AppKit team), focused on solving the problems Naroff and Watt had identified in the white paper. The meeting was both timely and productive; it helped validate Naroff's thinking and establish priorities. NeXT was pleased to see Naroff anticipate their issues, but they wanted PPI to commit to solutions.
 
 Naroff believed that collaborating with NeXT was mission critical to PPI and became a passionate advocate for NeXT inside PPI. NeXT was building critical pieces of their operating system on top of Objective-C, while HP was only playing with it in the lab and would likely (thought Naroff) never ship a product with it. PPI management did not share this opinion, believing that the big name HP, and not Steve Jobs' tiny startup, was the more important client. To rally support, Naroff requested that NeXT draft a letter (11/'87) outlining ``showstopper'' issues blocking NeXT's use of Objective-C (see section~\ref{sec-solvingfragility} below). NeXT's letter finally convinced PPI/Stepstone to pursue changes Naroff had lobbied for. As a result, Naroff became the primary engineering resource focused on solving NeXT issues.
-\section{Solving the fragility problem --- dynamic selector resolution}
+\section{Solving the Fragility Problem --- Dynamic Selector Resolution}
 \label{sec-solvingfragility}
 As mentioned previously, the AppKit, implemented in Objective-C, was a central component of the NeXTSTEP operating system, greatly simplifying the creation of applications with high quality graphical user interfaces. While NeXT utilized AppKit for their bundled applications, they realized it was impractical to copy AppKit into every application (the target computer only had 4 megabytes of RAM). As a result, NeXT scrambled to add support for shared libraries, a feature unavailable on Unix 4.3BSD. 
 
@@ -506,7 +506,7 @@ To solve these selector fragility problems, Naroff modified the parser to output
 Solving this fragility problem was mission critical for NeXT. It completed Objective-C's support for dynamic binding (and would make possible dynamic linking) and inspired confidence in Stepstone's ability to support NeXT's needs.
 
 As of 2006, C++ still suffered from a ``fragile method'' problem based on its use of virtual method tables for method dispatch. According to Naroff, virtual table dispatch is fragile by design, depending on offsets computed at compile time for efficiency, but this means that the size of compiled base classes in shared libraries cannot be added to by clients later at runtime, complicating shared library deployment. Many companies during the 1990s (including IBM, Taligent, and Be) attempted to fix the C++ fragility problem. However the static nature of the C++ language makes solving this problem more difficult, says Naroff. For example, to support inlining and templates, C++ encourages code to be distributed in header files and copied. Fortunately for NeXT, Objective-C's dynamic object model and modest language definition contributed to solving this problem in a timely manner. 
-\section{Adopting a declarative programming model}
+\section{Adopting a Declarative Programming Model}
 \label{sec-declarative}
 Coincident with solving the fragility problem, Naroff added explicit declaration constructs for class interfaces, method prototypes, and classified (static) typing. Here is a code fragment:
 \begin{verbatim}
@@ -542,7 +542,7 @@ The splitting of the class interface declaration from the class implementation d
 These changes are described in Appendix \ref{appendix_spec.language}, ``Functional Specification: Class Declaration Syntax and Run-Time Selector Mapping in the Objective-C Language,'' or spec.language, pages \arabic{appendixpagenumrangestart}--\arabic{appendixpagenumrangeend}.
 %%3--6.
 
-\section{Stepstone visit to NeXT (1988)}
+\section{Stepstone Visit to NeXT (1988)}
 \label{sec-stepstonetoNeXT1988}
 To help validate the NeXT version of the Objective-C language, Naroff visited NeXT Palo Alto headquarters (3/'88) and worked closely with Steve Stone. NeXT's product plans were still a closely guarded secret; engineering offices were strictly off limits. Instead, Naroff was set up in a business office with a Sun workstation and sample source code. After only a couple of days, the code was converted and compiled without error. For Naroff, the work was exhilarating---he felt an immediate kinship with NeXT engineers.
 
@@ -560,7 +560,7 @@ Looking back on it today, Naroff feels that, technically, the ICpak products wer
 
 Love, Cox, and Naroff thus all have different perspectives on the reason for Stepstone's failure. For Naroff, it was due not to the concept of software components, but the execution, on both the business and technology sides. Without strong direction from the founders, the company became ravaged by managers put in place by the board. Love contends that the management brought in by the investors was inexperienced with both the technology and the market for software, and therefore could not make the necessary long-term decisions (lowering the price of the compiler to drive adoption) for the survival of the company. Cox, meanwhile, feels that the engineering team got bogged down by porting the graphics libraries to increasingly smaller and less consequential platforms, and adding complex features, such as garbage collection, blocks, and an interpreter, that only one or two customers requested. 
 
-\section{Objective-C and the Free Software movement (1988)}
+\section{Objective-C and the Free Software Movement (1988)}
 \label{sec-freesoftware1988}
 As mentioned earlier, Naroff's hiring at NeXT triggered a brief lawsuit between Stepstone and NeXT, due to a non-compete agreement barring Naroff from working on Objective-C at NeXT. Jobs had NeXT's counsel Gary Moore handle the suit. Because NeXT had a source code license for Objective\=/C from Stepstone, and because Naroff had no knowledge of Stepstone's ICpak implementation, NeXT believed there would be no misuse of trade secrets. Nevertheless, NeXT agreed that any improvements Naroff made to Objective-C at NeXT for 12 months would be licensed back to Stepstone royalty-free, and that the existing license agreement between NeXT and Stepstone would be extended to the end of 1989. The suit was resolved, allowing Naroff to disclose to NeXT only Stepstone proprietary information regarding Objective-C, and Naroff began work at NeXT in August of 1988. 
 
@@ -636,7 +636,7 @@ Here is an expression that illustrates the seamless integration:
 Sending \verb$self$ the ``\verb$engine$'' message returns a C++ object that implements the ``\verb$computeSomething$'' member function. No bridging is necessary.
 
 The Objective-C++ design point can be characterized as ``peaceful coexistence.'' Both runtime systems were unaltered and mutually oblivious. Changing the C++ object model was a very tricky business with subtle semantic and performance implications. As a result, Naroff chose the most pragmatic and quickly useful course, to avoid subclassing between the object models. Rather, the inheritance hierarchies of the two languages would be orthogonal to each other, rather than merged, a much harder problem. The integration ``magic'' was isolated to the compiler front-end. The Lotus BackBay team was so impressed with the result that they awarded Naroff a special T-shirt for accomplishing a feat no one thought could be done. The resulting Objective-C++ integration was soon used by Pixar and by Adobe for Photoshop, and since by many others.
-\section{Method forwarding, signatures, and protocols (1990)}
+\section{Method Forwarding, Signatures, and Protocols (1990)}
 \label{sec-forwarding/protocols1990}
 In 1990, the NeXT Workspace Manager (the equivalent of the Macintosh Finder) team was exploring distributed programming using remote objects. As the name implies, remote objects allow message sending between processes and machines. To enable this, NeXT engineer Bertrand Serlet (later Senior Vice-President of Apple Software) prototyped \emph{forwarding}, an extension to the message dispatch routine. Forwarding provided a low-level hook to enable proxy objects.  Here is a simple delegate proxy that demonstrates forwarding:
 \begin{verbatim}
@@ -693,7 +693,7 @@ The reflection API was extended to check for conformance.
 \end{verbatim}
 
 Protocols provided a way to augment Objective-C's single inheritance model with \emph{multiple interface inheritance}, but not inheritance of implementation. This design point was far simpler than adding C++ style multiple inheritance, which included implementation. NeXT had a strong desire to keep the core object model simple. The focus was on sharing interfaces and expressing intentions, not traditional code reuse. Blaine Garst immediately began to use protocols to implement Portable Distributed Objects, and eventually also for archiving in the Foundation framework \citep[54--55]{garst_oral_2016}. Along with categories, protocols became a breakthrough feature addition that would be used throughout the AppKit and other frameworks to describe all kinds of reusable behavior, including implementation of the delegation design pattern. In 1995, Serlet and Garst added the ability to add \emph{categories} on \emph{protocols}. However, soon after, NeXT signed a deal with Sun Microsystems in which Sun bought a source code license to NeXTSTEP, freezing the previous codebase, causing NeXT to abandon this new feature \citep[60--61]{garst_oral_2016}. Though never shipped in Objective-C, this capability would be released as part of Swift in 2014, in the form of \emph{protocol extensions} \citepNA{apple_inc_protocols_2020}, which enable a new idiom of protocol-oriented programming in which the use of subclassing is bypassed completely.
-\section{Stasis and evolution at Apple (1997-2012)}
+\section{Stasis and Evolution at Apple (1997-2012)}
 \label{sec-apple1997-2012}
 By 1993, it was clear that NeXT's computer sales were not succeeding in the marketplace, and the company executed a hard and painful pivot into becoming a software company. The entire hardware business, including its automated factory, was either laid off or sold to Canon. The NeXTSTEP software was ported to the Intel x86 architecture, HP PA-RISC, and Sun Solaris. In this environment, Naroff decided to seek other opportunities, interviewing with First Person (the Sun spin-off that developed Java), Apple's Advanced Technology Group in Cambridge (where he would have worked with Ike Nassi's team developing the dynamic object-oriented language Dylan), and IBM. Naroff moved to North Carolina in 1994 to join IBM's Architecture Design Counsel, investigating the prospects of various software initiatives IBM had invested in (Taligent, OS/2, OpenDoc). Dissatisfied with his work at IBM, Naroff returned to NeXT in 1995, working remotely to coordinate a Java strategy for the company, creating an Objective-C/Java bridge that would be important for NeXT's new WebObjects product. After Apple acquired NeXT in late 1996/early 1997, Steve Jobs asked Naroff to move back to Silicon Valley to become the Director of a developer tools team that merged the groups from Apple and NeXT, which was also responsible for deploying Java on both the classic Macintosh (Mac OS 8/9) platform and the new Mac OS X platform. By 2002, tired of management, Naroff returned to technical work to develop Xcode, Apple's new Integrated Development Environment. Naroff hired Chris Lattner to the compiler team, and Apple would use Lattner's open source LLVM compiler architecture to replace its use of the GCC compiler. Naroff led the effort on Clang, a new Objective-C compiler frontend for LLVM, in 2007, replacing the old GCC frontend.
 
@@ -837,7 +837,7 @@ c. 1994 	& Stepstone folds \\
 \includepdf[pages=1, 
 width=\linewidth,
 link=true,
-pagecommand={\section{Historical document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
+pagecommand={\section{Historical Document: Design Issues for Objective-C DRAFT of July 3, 1987, S. Naroff, A. Watt, PPI}
 \label{appendix_NaroffWatt1987}}
 ]
 {SNaroffAWatt1987ObjCDesignIssues.pdf}
@@ -852,7 +852,7 @@ landscape=false,
 angle=90,
 width=\linewidth, 
 link=true,
-pagecommand={\section{Historical document: Objective-C v.4.0 charts, Stepstone, 1988}
+pagecommand={\section{Historical Document: Objective-C v.4.0 charts, Stepstone, 1988}
 \label{appendix_StepstoneObjC4Charts}}
 ]
 {Stepstone1988ObjC4_0Charts.pdf}
@@ -868,7 +868,7 @@ pagecommand={},
 \includepdf[pages=1, 
 width=\linewidth,
 link=true,
-pagecommand={\section{Historical document: spec.language, S. Naroff, c.1987}
+pagecommand={\section{Historical Document: Spec.Language, S. Naroff, c.1987}
 \label{appendix_spec.language}
 \tikz \fill[fill=white] (0,0) rectangle (\linewidth, 1in);
 },
@@ -885,7 +885,7 @@ pagecommand={}]
 width=\linewidth, 
 link=true,
 pagecommand={
-\section{Historical document: spec.runtime, S. Naroff, c.1987}
+\section{Historical Document: Spec.Runtime, S. Naroff, c.1987}
 \label{appendix_spec.runtime}
 \tikz \fill [fill=white] (0,0) rectangle (\linewidth, 1in);
 },
